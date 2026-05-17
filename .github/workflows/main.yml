@@ -34,12 +34,14 @@ jobs:
           notopen_action = retry
 
           [tiku]
-          provider = TikuYanxi
+          provider = ${{ secrets.TIKU_PROVIDER || 'TikuYanxi' }}
           submit = true
           cover_rate = 0.9
           delay = 1.0
           true_list = 正确,对,√,是
           false_list = 错误,错,×,否,不对,不正确
+          tokens = ${{ secrets.TIKU_TOKENS || '' }}
+          url = ${{ secrets.TIKUADAPTER_URL || '' }}
           CONFIGEOF
 
       - name: Run main.py
