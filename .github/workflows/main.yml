@@ -1,4 +1,5 @@
 name: 刷课
+run-name: 刷课
 
 on:
   push:
