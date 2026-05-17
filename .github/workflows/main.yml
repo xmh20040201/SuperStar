@@ -35,7 +35,7 @@ jobs:
 
           [tiku]
           provider = ${{ secrets.TIKU_PROVIDER || 'TikuYanxi' }}
-          submit = true
+          submit = false
           cover_rate = 0.9
           delay = 1.0
           true_list = 正确,对,√,是
