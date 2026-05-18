@@ -2,6 +2,7 @@ name: 刷课
 run-name: 刷课
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
   schedule:
