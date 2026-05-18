@@ -35,7 +35,7 @@ jobs:
           notopen_action = retry
 
           [tiku]
-          provider = ${{ secrets.TIKU_PROVIDER || 'TikuYanxi' }}
+          provider = ${{ secrets.TIKU_PROVIDER || 'TikuGo' }}
           submit = true
           cover_rate = 0.9
           delay = 1.0
@@ -43,6 +43,15 @@ jobs:
           false_list = 错误,错,×,否,不对,不正确
           tokens = ${{ secrets.TIKU_TOKENS || '' }}
           url = ${{ secrets.TIKUADAPTER_URL || '' }}
+          go_authorization =
+          go_min_interval = 1.0
+          go_retry_times = 3
+          go_retry_backoff = 1.2
+          siliconflow_key = ${{ secrets.SILICONFLOW_KEY || '' }}
+          siliconflow_model = deepseek-ai/DeepSeek-V3
+          siliconflow_endpoint = https://api.siliconflow.cn/v1/chat/completions
+          check_llm_connection = true
+          min_interval_seconds = 3
           CONFIGEOF
 
       - name: Run main.py
