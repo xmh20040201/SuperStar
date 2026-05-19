@@ -30,7 +30,6 @@ jobs:
           [common]
           username = ${{ secrets.CHAOXING_USERNAME }}
           password = ${{ secrets.CHAOXING_PASSWORD }}
-          course_list = ${{ secrets.CHAOXING_COURSE_LIST }}
           speed = 1
           jobs = 4
           notopen_action = retry
