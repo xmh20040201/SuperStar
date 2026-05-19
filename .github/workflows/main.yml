@@ -3,10 +3,6 @@ run-name: 刷课
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ main ]
-  schedule:
-    - cron: "0 8 * * *"
 
 jobs:
   Start:
@@ -38,7 +34,7 @@ jobs:
           [tiku]
           provider = ${{ secrets.TIKU_PROVIDER || 'TikuGo' }}
           submit = true
-          cover_rate = 0.9
+          cover_rate = 0
           delay = 1.0
           true_list = 正确,对,√,是
           false_list = 错误,错,×,否,不对,不正确
