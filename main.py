@@ -481,7 +481,7 @@ def filter_courses(all_course, course_list):
             ).split(",")
         except Exception:
             logger.warning("非交互模式，将学习全部课程")
-            course_list = None
+            course_list = []
     course_list = [str(course_id).strip() for course_id in course_list if str(course_id).strip()]
     if not course_list:
         logger.warning("未指定课程ID，将学习全部课程")
