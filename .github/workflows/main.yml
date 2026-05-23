@@ -78,3 +78,17 @@ jobs:
 
       - name: Run main.py
         run: python main.py -c config.ini
+
+      - name: 清理旧运行记录
+        if: always()
+        run: |
+          RUN_ID="${{ github.run_id }}"
+          WORKFLOW_ID="${{ github.workflow_id }}"
+          REPO="${{ github.repository }}"
+          ALL_RUNS=$(gh api repos/$REPO/actions/workflows/$WORKFLOW_ID/runs --jq '[.workflow_runs[].id | select(. != ('$RUN_ID' | tonumber))][]')
+          echo "$ALL_RUNS" | while read -r id; do
+            echo "删除旧运行: $id"
+            gh api repos/$REPO/actions/runs/$id -X DELETE --silent
+          done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
