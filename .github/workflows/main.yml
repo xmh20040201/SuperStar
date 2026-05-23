@@ -26,7 +26,7 @@ jobs:
           [common]
           username = ${{ secrets.CHAOXING_USERNAME }}
           password = ${{ secrets.CHAOXING_PASSWORD }}
-          course_list = 260367564
+          course_list = 260367564,261797276,261797280
           speed = 1
           jobs = 4
           notopen_action = retry
