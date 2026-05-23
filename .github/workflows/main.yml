@@ -28,7 +28,7 @@ jobs:
   Start:
     runs-on: ubuntu-latest
     steps:
-      - name: 批贝代码
+      - name: 拷贝代码
         uses: actions/checkout@v4
 
       - name: 设置python环境
@@ -47,7 +47,7 @@ jobs:
           else
             COURSE_LIST="261797276,261797280"
           fi
-          cat > config.ini << 'CONFIGEOF'
+          cat > config.ini << CONFIGEOF
           [common]
           username = ${{ secrets.CHAOXING_USERNAME }}
           password = ${{ secrets.CHAOXING_PASSWORD }}
